@@ -17,7 +17,7 @@ const icons = {
   [SUN]: "day-sunny",
   [RAIN]: "rain",
   [SNOW]: "snow",
-  [THUNDER]: "day-thunderstore",
+  [THUNDER]: "day-thunderstorm",
   [DRIZZLE]: "day-showers",
 };
 
@@ -47,7 +47,7 @@ const getWeatherIcon = (weatherState) => {
 const WeatherTemperature = ({ temperature, weatherState }) => (
   <div className="card-title column">
     {getWeatherIcon(weatherState)}
-    <span className="font-weight-bold h4">{`${temperature} C°`}</span>
+    <span className="font-weight-bold h4 mt-2">{`${temperature} C°`}</span>
   </div>
 );
 

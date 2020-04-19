@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import LocationCardLoader from "../ContentLoaders/WheaterLocationCard";
 import Location from "../Location";
 import WeatherData from "../WeatherData";
 import transformWeather from "../../services/transformWheater";
@@ -8,7 +8,9 @@ import apiRequest from "../../services/apiRequest";
 import { BASE_URL, API_KEY } from "../../constants/api_url";
 
 const WeatherLocation = (props) => {
-  const { city } = props;
+  const { city, eventHandler } = props;
+  console.log(props);
+
   const initialState = {
     city,
     data: null,
@@ -26,12 +28,14 @@ const WeatherLocation = (props) => {
   useEffect(() => handleUpdateClick(), []);
 
   return (
-    <div className="card bg-light m-2 ">
-      <Location city={city} />
+    <div className="card bg-light m-2 " onClick={() => eventHandler()}>
       {data ? (
-        <WeatherData data={data} />
+        <>
+          <Location city={city} />
+          <WeatherData data={data} />
+        </>
       ) : (
-        <CircularProgress className="mx-auto" />
+        <LocationCardLoader className="mx-auto" />
       )}
     </div>
   );
@@ -39,5 +43,6 @@ const WeatherLocation = (props) => {
 
 WeatherLocation.propTypes = {
   city: PropTypes.string.isRequired,
+  eventHandler: PropTypes.func.isRequired,
 };
 export default WeatherLocation;
