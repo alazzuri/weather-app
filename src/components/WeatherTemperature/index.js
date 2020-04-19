@@ -23,6 +23,7 @@ const icons = {
 
 const getWeatherIcon = (weatherState) => {
   const icon = icons[weatherState];
+
   const sizeIcon = "4x";
   if (icon) {
     return <WeaterIcons className="text-info" name={icon} size={sizeIcon} />;
@@ -36,7 +37,7 @@ const getWeatherIcon = (weatherState) => {
 const WeatherTemperature = ({ temperature, weatherState }) => (
   <div className="card-title column">
     {getWeatherIcon(weatherState)}
-    <span className="font-weight-bold h4">{`${temperature}C°`}</span>
+    <span className="font-weight-bold h4">{`${temperature} C°`}</span>
   </div>
 );
 
