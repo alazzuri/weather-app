@@ -3,22 +3,22 @@ import WeaterIcons from "react-weathericons";
 import PropTypes from "prop-types";
 import {
   CLOUD,
-  CLOUDY,
   SUN,
   RAIN,
   SNOW,
-  WINDY,
+  THUNDER,
+  DRIZZLE,
 } from "../../constants/weathers";
 
 import "./styles.css";
 
 const icons = {
   [CLOUD]: "cloud",
-  [CLOUDY]: "cloudy",
   [SUN]: "day-sunny",
   [RAIN]: "rain",
   [SNOW]: "snow",
-  [WINDY]: "windy",
+  [THUNDER]: "day-thunderstore",
+  [DRIZZLE]: "day-showers",
 };
 
 const getWeatherIcon = (weatherState) => {
@@ -26,10 +26,20 @@ const getWeatherIcon = (weatherState) => {
 
   const sizeIcon = "4x";
   if (icon) {
-    return <WeaterIcons className="text-info" name={icon} size={sizeIcon} />;
+    return (
+      <WeaterIcons
+        className={`${icon === "day-sunny" ? "text-warning" : "text-info"}`}
+        name={icon}
+        size={sizeIcon}
+      />
+    );
   } else {
     return (
-      <WeaterIcons className="text-info" name={"day-sunny"} size={sizeIcon} />
+      <WeaterIcons
+        className="text-warning"
+        name={"day-sunny"}
+        size={sizeIcon}
+      />
     );
   }
 };
