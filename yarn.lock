@@ -1177,6 +1177,17 @@
     react-is "^16.8.0"
     react-transition-group "^4.3.0"
 
+"@material-ui/lab@^4.0.0-alpha.50":
+  version "4.0.0-alpha.50"
+  resolved "https://registry.yarnpkg.com/@material-ui/lab/-/lab-4.0.0-alpha.50.tgz#a2d6c6c1b6cb53c64b5e4f2ae1e604ce7ecc633a"
+  integrity sha512-32ICWUeXmbwYfgDoaV7M9t8I7+3VkVdxM1/7+oxQIRQ9KRlXNZ5Qept46ofyMOKRwx6SwXCYKwO7yynLsnoL4Q==
+  dependencies:
+    "@babel/runtime" "^7.4.4"
+    "@material-ui/utils" "^4.9.6"
+    clsx "^1.0.4"
+    prop-types "^15.7.2"
+    react-is "^16.8.0"
+
 "@material-ui/react-transition-group@^4.2.0":
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/@material-ui/react-transition-group/-/react-transition-group-4.2.0.tgz#afec833bbcc79f05a9b4d4828b3e07965cc7e321"
@@ -8869,11 +8880,6 @@ react-bootstrap@^1.0.0:
     react-transition-group "^4.0.0"
     uncontrollable "^7.0.0"
     warning "^4.0.3"
-
-react-content-loader@^5.0.4:
-  version "5.0.4"
-  resolved "https://registry.yarnpkg.com/react-content-loader/-/react-content-loader-5.0.4.tgz#1493491d2f6b309d281d84144a655417ea734486"
-  integrity sha512-hxv4Td1kQxFOmIUbBZ2S3HGZ/jJr28aJvM+8fndm9TmNOE7tSde7WSTL6R68aTS6qE0BA3ptcWIErrP704pQSw==
 
 react-dev-utils@^10.2.1:
   version "10.2.1"
