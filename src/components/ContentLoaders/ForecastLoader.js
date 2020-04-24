@@ -12,7 +12,7 @@ const ForecastLoader = ({ items }) => {
         <Skeleton className="w-50 mx-auto mb-3" height={30} />
         {items.map((item) => (
           <div>
-            <Skeleton variant="rect" className="mb-2" height={200}>
+            <Skeleton variant="rect" className="mb-2" height={210}>
               <Skeleton className="w-50 mx-auto" height={30} />
               <Skeleton
                 variant="circle"
