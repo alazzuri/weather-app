@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import ForecastItem from "../ForecastItem";
-import { fakeData } from "../../constants/api_url";
+import { fakeData, FORECAST_URL, API_KEY } from "../../constants/api_url";
+import apiRequest from "../../services/apiRequest";
 
 import ForecastLoader from "../ContentLoaders/ForecastLoader";
 
@@ -12,11 +13,38 @@ const initialState = {
 };
 
 const ForecastExtended = ({ city }) => {
-  const [state, setstate] = useState(initialState);
+  const [state, setState] = useState(initialState);
   const { data } = state;
 
   const renderForecastDays = (days) =>
     days.map((day) => <ForecastItem weekDay={day} hour={10} data={fakeData} />);
+
+  useEffect(() => {
+    const abortController = new AbortController();
+
+    const updateForecast = async () => {
+      const signal = abortController.signal;
+      try {
+        const fetchedData = await apiRequest(
+          FORECAST_URL,
+          API_KEY,
+          city,
+          signal
+        );
+        console.log(fetchedData);
+
+        // setState({ ...state, ...newState });
+      } catch (err) {
+        !abortController.signal.aborted && console.error(err);
+      }
+    };
+
+    city && updateForecast();
+
+    return () => {
+      abortController.abort();
+    };
+  }, [city, data]);
 
   return (
     <div>
