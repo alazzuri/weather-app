@@ -21,7 +21,7 @@ const cities = [
 
 const initialState = {
   cities,
-  selectedCity: "Selecciona una ciudad",
+  selectedCity: null,
 };
 
 function App() {
@@ -44,14 +44,14 @@ function App() {
         </AppBar>
       </Row>
       <Row>
-        <Col xs={12} md={6} className="mb-4 h-50">
+        <Col xs={12} md={6} className="mb-4">
           <LocationList
             cities={cities}
             onSelectedLocation={handleSelectedLocation}
           />
         </Col>
         <Col xs={12} md={6} className="mb-4">
-          <Paper elevation={4} className="h-50">
+          <Paper elevation={4}>
             <Card className="card h-100">
               <ForecastExtended city={selectedCity} />
             </Card>
