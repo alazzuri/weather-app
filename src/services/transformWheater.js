@@ -14,7 +14,6 @@ const getTemp = (temp) => {
 
 const getWeatherState = (weatherData) => {
   const { id } = weatherData;
-  console.log(id);
 
   if (id < 300) {
     return THUNDER;
