@@ -1,0 +1,38 @@
+.footer {
+  width: 100%;
+  border-top: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px;
+  font-weight: 700;
+}
+
+p {
+  height: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.fa-heart {
+  color: red;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.github {
+  height: 20px;
+  color: black;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.github:hover {
+  color: black;
+  text-decoration: wavy;
+}
+
+.github i {
+  margin-right: 5px;
+}

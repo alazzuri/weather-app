@@ -6,13 +6,13 @@ import WeatherData from "../WeatherData";
 import Card from "@material-ui/core/Card";
 import transformWeather from "../../services/transformWheater";
 import apiRequest from "../../services/apiRequest";
-import { BASE_URL, API_KEY, fakeData } from "../../constants/api_url";
+import { BASE_URL, API_KEY } from "../../constants/api_url";
 
 const WeatherLocation = (props) => {
   const { city, eventHandler } = props;
   const initialState = {
     city,
-    data: fakeData,
+    data: null,
   };
   const [state, setState] = useState(initialState);
   const { data } = state;
@@ -24,6 +24,8 @@ const WeatherLocation = (props) => {
       const signal = abortController.signal;
       try {
         const fetchedData = await apiRequest(BASE_URL, API_KEY, city, signal);
+        console.log(fetchedData);
+
         const newState = await transformWeather(fetchedData);
         setState((state) => {
           return { ...state, ...newState };

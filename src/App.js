@@ -51,11 +51,7 @@ function App() {
           />
         </Col>
         <Col xs={12} md={6} className="mb-4">
-          <Paper elevation={4}>
-            <Card className="card h-100">
-              <ForecastExtended city={selectedCity} />
-            </Card>
-          </Paper>
+          <ForecastExtended className="w-100" city={selectedCity} />
         </Col>
       </Row>
       <Row>

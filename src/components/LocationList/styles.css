@@ -3,11 +3,12 @@
   margin: 0 auto;
   padding-left: 10px;
   padding-right: 10px;
+  overflow: auto;
+  max-height: 74vh;
 }
 
 @media screen and (max-width: 768px) {
   .list-container {
     max-height: 40vh;
-    overflow: auto;
   }
 }

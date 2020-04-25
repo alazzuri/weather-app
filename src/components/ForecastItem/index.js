@@ -7,7 +7,7 @@ const ForecastItem = ({ weekDay, hour, data }) => {
   return (
     <div className="pt-4">
       <div>
-        {weekDay} Hora: {hour} hs.
+        {weekDay.toUpperCase()} - {hour} hs.
       </div>
       <WeatherData data={data} className="mb-4" />
       <Divider />

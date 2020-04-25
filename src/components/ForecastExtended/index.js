@@ -1,27 +1,40 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import ForecastItem from "../ForecastItem";
-import { fakeData, FORECAST_URL, API_KEY } from "../../constants/api_url";
+import { FORECAST_URL, API_KEY } from "../../constants/api_url";
 import apiRequest from "../../services/apiRequest";
 
 import ForecastLoader from "../ContentLoaders/ForecastLoader";
 import transformForecast from "../../services/transformForecast";
+import { Card, Divider } from "@material-ui/core";
+import Paper from "@material-ui/core/Paper";
 
-const days = ["lunes", "martes", "miercoles", "jueves", "viernes"];
+import "./styles.css";
 
 const initialState = {
-  data: null,
+  forecast: null,
 };
 
 const ForecastExtended = ({ city }) => {
   const [state, setState] = useState(initialState);
-  const { data } = state;
+  const { forecast } = state;
 
-  const renderForecastDays = (days) =>
-    days.map((day) => <ForecastItem weekDay={day} hour={10} data={data} />);
+  const renderForecastDays = (completeForecast) =>
+    completeForecast.map((dayForecast) => {
+      const {
+        weekDay,
+        hour,
+        data: { data },
+      } = dayForecast;
+
+      return <ForecastItem weekDay={weekDay} hour={hour} data={data} />;
+    });
 
   useEffect(() => {
     const abortController = new AbortController();
+    setState((state) => {
+      return { ...state, ...{ forecast: null } };
+    });
 
     const updateForecast = async () => {
       const signal = abortController.signal;
@@ -32,10 +45,10 @@ const ForecastExtended = ({ city }) => {
           city,
           signal
         );
-        const newState = { data: await transformForecast(fetchedData) };
+        const forecast = await transformForecast(fetchedData);
 
         setState((state) => {
-          return { ...state, ...newState };
+          return { ...state, ...{ forecast } };
         });
       } catch (err) {
         !abortController.signal.aborted && console.error(err);
@@ -50,24 +63,27 @@ const ForecastExtended = ({ city }) => {
   }, [city]);
 
   return (
-    <div>
-      {city ? (
-        data ? (
-          <div>
-            <h2 className="card-header mb-2">Pronostico Extendido</h2>
-            <h3>{city}</h3>
-            {renderForecastDays(days)}
-          </div>
+    <Paper elevation={4}>
+      <Card className="card">
+        {city ? (
+          forecast ? (
+            <div className="forecast">
+              <h2 className="card-header mb-2">Pronostico Extendido</h2>
+              <h3>{city}</h3>
+              <Divider />
+              {renderForecastDays(forecast)}
+            </div>
+          ) : (
+            <ForecastLoader />
+          )
         ) : (
-          <ForecastLoader items={days} />
-        )
-      ) : (
-        <div>
-          <h2 className="card-header mb-2">Pronostico Extendido</h2>
-          <h3>Seleccione ciudad</h3>
-        </div>
-      )}
-    </div>
+          <div className="forecast">
+            <h2 className="card-header mb-2">Pronostico Extendido</h2>
+            <h3>Seleccione ciudad</h3>
+          </div>
+        )}
+      </Card>
+    </Paper>
   );
 };
 
