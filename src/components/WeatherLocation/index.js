@@ -25,7 +25,9 @@ const WeatherLocation = (props) => {
       try {
         const fetchedData = await apiRequest(BASE_URL, API_KEY, city, signal);
         const newState = await transformWeather(fetchedData);
-        setState({ ...state, ...newState });
+        setState((state) => {
+          return { ...state, ...newState };
+        });
       } catch (err) {
         !abortController.signal.aborted && console.error(err);
       }
@@ -36,7 +38,7 @@ const WeatherLocation = (props) => {
     return () => {
       abortController.abort();
     };
-  }, [city, state]);
+  }, [city]);
 
   return (
     <Card

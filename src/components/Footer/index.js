@@ -5,7 +5,7 @@ export const Footer = () => {
   return (
     <footer>
       <Typography align="center">
-        Hecho con <i class="fas fa-heart" style={{ color: "red" }}></i> por
+        Hecho con <i className="fas fa-heart" style={{ color: "red" }}></i> por
         Alexis Lazzuri
       </Typography>
     </footer>

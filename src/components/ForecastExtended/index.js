@@ -5,6 +5,7 @@ import { fakeData, FORECAST_URL, API_KEY } from "../../constants/api_url";
 import apiRequest from "../../services/apiRequest";
 
 import ForecastLoader from "../ContentLoaders/ForecastLoader";
+import transformForecast from "../../services/transformForecast";
 
 const days = ["lunes", "martes", "miercoles", "jueves", "viernes"];
 
@@ -17,7 +18,7 @@ const ForecastExtended = ({ city }) => {
   const { data } = state;
 
   const renderForecastDays = (days) =>
-    days.map((day) => <ForecastItem weekDay={day} hour={10} data={fakeData} />);
+    days.map((day) => <ForecastItem weekDay={day} hour={10} data={data} />);
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -31,9 +32,11 @@ const ForecastExtended = ({ city }) => {
           city,
           signal
         );
-        console.log(fetchedData);
+        const newState = { data: await transformForecast(fetchedData) };
 
-        // setState({ ...state, ...newState });
+        setState((state) => {
+          return { ...state, ...newState };
+        });
       } catch (err) {
         !abortController.signal.aborted && console.error(err);
       }
@@ -44,7 +47,7 @@ const ForecastExtended = ({ city }) => {
     return () => {
       abortController.abort();
     };
-  }, [city, data]);
+  }, [city]);
 
   return (
     <div>
