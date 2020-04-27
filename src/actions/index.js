@@ -1,4 +1,4 @@
-import { apiRequest, abortFetch } from "../services/apiRequest";
+import { apiRequest } from "../services/apiRequest";
 import { FORECAST_URL, API_KEY } from "../constants/api_url";
 import transformForecast from "../services/transformForecast";
 
@@ -16,17 +16,8 @@ export const setForecastData = (value) => ({
   value,
 });
 
-export const setAbortController = (value) => ({
-  type: SET_ABORTCONTROLLER,
-  value,
-});
-
-export const fetchForecast = (value) => (dispatch) => {
-  const abortController = new AbortController();
-  dispatch(setAbortController(abortController));
-
+export const fetchForecast = (value, signal) => (dispatch) => {
   const updateForecast = async () => {
-    const signal = abortController.signal;
     try {
       const fetchedData = await apiRequest(
         FORECAST_URL,
@@ -37,7 +28,7 @@ export const fetchForecast = (value) => (dispatch) => {
       const forecastData = await transformForecast(fetchedData);
       dispatch(setForecastData(forecastData));
     } catch (err) {
-      !abortController.signal.aborted && console.error(err);
+      !signal.aborted && console.error(err);
     }
   };
 

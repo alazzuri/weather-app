@@ -33,8 +33,13 @@ const ForecastExtended = ({ city }) => {
     });
 
   useEffect(() => {
-    dispatch(fetchForecast(city));
-    return () => {}; ////aca ver el tema del cleanup;
+    const abortController = new AbortController();
+    const signal = abortController.signal;
+
+    dispatch(fetchForecast(city, signal));
+    return () => {
+      abortController.abort();
+    };
   }, [city, dispatch]);
 
   return (
