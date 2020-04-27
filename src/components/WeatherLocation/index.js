@@ -5,7 +5,7 @@ import Location from "../Location";
 import WeatherData from "../WeatherData";
 import Card from "@material-ui/core/Card";
 import transformWeather from "../../services/transformWheater";
-import apiRequest from "../../services/apiRequest";
+import { apiRequest } from "../../services/apiRequest";
 import { BASE_URL, API_KEY } from "../../constants/api_url";
 
 const WeatherLocation = (props) => {

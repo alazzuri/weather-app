@@ -6,9 +6,9 @@ import Divider from "@material-ui/core/Divider";
 const ForecastItem = ({ weekDay, hour, data }) => {
   return (
     <div className="pt-4">
-      <div>
+      <h2>
         {weekDay.toUpperCase()} - {hour} hs.
-      </div>
+      </h2>
       <WeatherData data={data} className="mb-4" />
       <Divider />
     </div>

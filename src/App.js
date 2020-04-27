@@ -1,37 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
-import LocationList from "./components/LocationList";
 import { Grid, Row, Col } from "react-flexbox-grid";
-import Paper from "@material-ui/core/Paper";
 import AppBar from "@material-ui/core/AppBar";
 import Typography from "@material-ui/core/Typography";
 import Toolbar from "@material-ui/core/Toolbar";
-import ForecastExtended from "./components/ForecastExtended";
-import { Card } from "@material-ui/core";
-
+import ForecastExtendedContainer from "./containers/ForecastExtendedContainer";
 import Footer from "./components/Footer";
-
-const cities = [
-  "Cordoba, ar",
-  "Buenos Aires, ar",
-  "Miami, us",
-  "Madrid, es",
-  "Ciudad de Mexico, mx",
-];
-
-const initialState = {
-  cities,
-  selectedCity: null,
-};
+import LocationListContainer from "./containers/LocationListContainer";
 
 function App() {
-  const [state, setState] = useState(initialState);
-  const { cities, selectedCity } = state;
-
-  const handleSelectedLocation = (city) => {
-    setState({ ...state, selectedCity: city });
-  };
-
   return (
     <Grid className="App">
       <Row className="mb-3">
@@ -45,13 +22,10 @@ function App() {
       </Row>
       <Row>
         <Col xs={12} md={6} className="mb-4">
-          <LocationList
-            cities={cities}
-            onSelectedLocation={handleSelectedLocation}
-          />
+          <LocationListContainer />
         </Col>
         <Col xs={12} md={6} className="mb-4">
-          <ForecastExtended className="w-100" city={selectedCity} />
+          <ForecastExtendedContainer />
         </Col>
       </Row>
       <Row>
