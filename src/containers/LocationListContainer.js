@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setCity } from "../actions";
 
 export const LocationListContainer = () => {
-  const cities = useSelector((state) => state.cities);
+  const cities = useSelector((state) => state.savedCities);
   const dispatch = useDispatch();
   const handleSelectedLocation = (city) => {
     dispatch(setCity(city));

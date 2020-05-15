@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 
 const ForecastExtendedContainer = () => {
   const selectedCity = useSelector((state) => state.selectedCity);
+
   return selectedCity ? (
     <ForecastExtended className="w-100" city={selectedCity} />
   ) : (
