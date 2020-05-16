@@ -1,9 +1,11 @@
 import { apiRequest } from "../services/apiRequest";
-import { FORECAST_URL, API_KEY } from "../constants/api_url";
+import { FORECAST_URL, API_KEY, BASE_URL } from "../constants/api_url";
+import transformWeather from "../services/transformWheater";
 import transformForecast from "../services/transformForecast";
 
 export const SET_CITY = "SET_CITY";
 export const SET_FORECASTDATA = "SET_FORECASTDATA";
+export const SET_WEATHER_DATA = "SET_WEATHER_DATA";
 export const SET_SAVED_CITY = "SET_SAVED_CITY";
 export const SET_FETCHING_STATUS = "SET_FETCHING_STATUS";
 
@@ -17,12 +19,22 @@ export const setForecastData = (value) => ({
   value,
 });
 
+export const setWeatherData = (value) => ({
+  type: SET_WEATHER_DATA,
+  value,
+});
+
 export const setFetchingStatus = (value) => ({
   type: SET_FETCHING_STATUS,
   value,
 });
 
-export const setSelectedCity = (value, signal) => (dispatch) => {
+export const setSavedCity = (value) => ({
+  type: SET_SAVED_CITY,
+  value,
+});
+
+export const setForecastOnCity = (value, signal) => (dispatch) => {
   const updateForecast = async () => {
     try {
       const fetchedData = await apiRequest(
@@ -40,4 +52,19 @@ export const setSelectedCity = (value, signal) => (dispatch) => {
   };
 
   return updateForecast();
+};
+
+export const setWeatherOnCity = (value, signal) => (dispatch) => {
+  const getWeatherData = async () => {
+    try {
+      const fetchedData = await apiRequest(BASE_URL, API_KEY, value, signal);
+      const weatherData = await transformWeather(fetchedData);
+      dispatch(setWeatherData({ city: value, weatherData }));
+      console.log("Acccionado");
+    } catch (err) {
+      dispatch(setWeatherData({ city: value, weatherData: null }));
+    }
+  };
+
+  return getWeatherData();
 };

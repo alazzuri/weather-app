@@ -1,14 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ForecastExtended from "../components/ForecastExtended";
-import { useSelector } from "react-redux";
 import { Card, Divider } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
+import { useSelector, useDispatch } from "react-redux";
+import { setForecastOnCity, setFetchingStatus } from "../actions";
 
 const ForecastExtendedContainer = () => {
   const selectedCity = useSelector((state) => state.selectedCity);
+  const weatherData = useSelector((state) => state.weatherData);
+  const isFetching = useSelector((state) => state.fetchingStatus);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const abortController = new AbortController();
+    const signal = abortController.signal;
+    dispatch(setFetchingStatus(true));
+    dispatch(setForecastOnCity(selectedCity, signal));
+
+    return () => {
+      abortController.abort();
+    };
+  }, [selectedCity]);
 
   return selectedCity ? (
-    <ForecastExtended className="w-100" city={selectedCity} />
+    <ForecastExtended
+      className="w-100"
+      city={selectedCity}
+      forecastData={weatherData[selectedCity].forecastData}
+      isFetching={isFetching}
+    />
   ) : (
     <Paper elevation={4}>
       <Card className="card">

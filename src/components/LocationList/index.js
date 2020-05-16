@@ -13,9 +13,10 @@ const LocationList = ({ cities, onSelectedLocation }) => {
       {cities.map((city) => (
         <WeatherLocation
           className="location-card"
-          city={city}
-          key={city}
-          eventHandler={() => clickEventHanlder(city)}
+          city={city.name}
+          data={city.data}
+          key={city.key}
+          eventHandler={() => clickEventHanlder(city.name)}
         />
       ))}
     </div>

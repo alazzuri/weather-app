@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import ForecastItem from "../ForecastItem";
 
@@ -7,45 +7,28 @@ import { Card, Divider } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 
 import "./styles.css";
-import { useSelector, useDispatch } from "react-redux";
-import { setSelectedCity, setFetchingStatus } from "../../actions";
 
-const ForecastExtended = ({ city }) => {
-  const forecastData = useSelector((state) => state.forecastData);
-  const isFetching = useSelector((state) => state.fetchingStatus);
-  const dispatch = useDispatch();
+const renderForecastDays = (completeForecast) =>
+  completeForecast
+    ? completeForecast.map((dayForecast) => {
+        const {
+          weekDay,
+          hour,
+          data: { data },
+        } = dayForecast;
 
-  const renderForecastDays = (completeForecast, city) =>
-    completeForecast && completeForecast[city]
-      ? completeForecast[city].map((dayForecast) => {
-          const {
-            weekDay,
-            hour,
-            data: { data },
-          } = dayForecast;
+        return (
+          <ForecastItem
+            key={`${weekDay}${hour}`}
+            weekDay={weekDay}
+            hour={hour}
+            data={data}
+          />
+        );
+      })
+    : null;
 
-          return (
-            <ForecastItem
-              key={`${weekDay}${hour}`}
-              weekDay={weekDay}
-              hour={hour}
-              data={data}
-            />
-          );
-        })
-      : null;
-
-  useEffect(() => {
-    const abortController = new AbortController();
-    const signal = abortController.signal;
-    dispatch(setFetchingStatus(true));
-    dispatch(setSelectedCity(city, signal));
-    return () => {
-      abortController.abort();
-      console.log("Aborted");
-    };
-  }, [city, dispatch]);
-
+const ForecastExtended = ({ city, forecastData, isFetching }) => {
   return (
     <Paper elevation={4}>
       <Card className="card">
@@ -68,6 +51,8 @@ const ForecastExtended = ({ city }) => {
 
 ForecastExtended.propTypes = {
   city: PropTypes.string.isRequired,
+  forecastData: PropTypes.array,
+  isFetching: PropTypes.bool.isRequired,
 };
 
 export default ForecastExtended;

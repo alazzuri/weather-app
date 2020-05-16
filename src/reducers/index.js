@@ -1,12 +1,12 @@
 import { combineReducers } from "redux";
 import { selectedCity } from "./selectedCity";
-import { forecastData } from "./forecastData";
+import { weatherData } from "./weatherData";
 import { savedCities } from "./savedCities";
 import { fetchingStatus } from "./fetchingStatus";
 
 export default combineReducers({
   savedCities,
-  forecastData,
+  weatherData,
   selectedCity,
   fetchingStatus,
 });
