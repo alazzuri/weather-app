@@ -1,4 +1,8 @@
 .forecast {
   height: 74vh;
+}
+
+.scroll {
+  max-height: 80%;
   overflow: auto;
 }

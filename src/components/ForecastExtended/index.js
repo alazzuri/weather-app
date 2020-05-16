@@ -56,7 +56,9 @@ const ForecastExtended = ({ city }) => {
           {isFetching ? (
             <ForecastLoader />
           ) : (
-            renderForecastDays(forecastData, city)
+            <div className="scroll">
+              {renderForecastDays(forecastData, city)}
+            </div>
           )}
         </div>
       </Card>
