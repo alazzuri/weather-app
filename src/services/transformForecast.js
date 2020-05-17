@@ -5,8 +5,6 @@ import transformWeather from "./transformWheater";
 const transformForecast = (data) => {
   const { list } = data;
 
-  console.log(list);
-
   const filteredList = list.filter(
     (element) =>
       moment.unix(element.dt).utc().hour() === 6 ||

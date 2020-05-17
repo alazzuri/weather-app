@@ -13,9 +13,12 @@ const ForecastExtendedContainer = () => {
 
   useEffect(() => {
     const abortController = new AbortController();
-    const signal = abortController.signal;
-    dispatch(setFetchingStatus(true));
-    dispatch(setForecastOnCity(selectedCity, signal));
+
+    if (selectedCity) {
+      const signal = abortController.signal;
+      dispatch(setFetchingStatus(true));
+      dispatch(setForecastOnCity(selectedCity, signal));
+    }
 
     return () => {
       abortController.abort();
