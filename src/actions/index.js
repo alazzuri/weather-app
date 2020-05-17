@@ -34,7 +34,18 @@ export const setSavedCity = (value) => ({
   value,
 });
 
-export const setForecastOnCity = (value, signal) => (dispatch) => {
+export const setForecastOnCity = (value, signal) => (dispatch, getState) => {
+  const state = getState();
+
+  const lastFetch =
+    state.weatherData[value] && state.weatherData[value].forecastDataDate;
+
+  const currenTime = new Date();
+
+  if (lastFetch && currenTime - lastFetch < 60000) {
+    return dispatch(setFetchingStatus(false));
+  }
+
   const updateForecast = async () => {
     try {
       const fetchedData = await apiRequest(
