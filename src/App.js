@@ -13,7 +13,7 @@ import { Logo } from "./assets";
 function App() {
   return (
     <div>
-      <AppBar position="sticky" className="main-header bg-info">
+      <AppBar position="sticky" className="main-header ">
         <Toolbar>
           <img src={Logo} alt="Logo" className="main-logo" />
           <Typography variant="h4" color="inherit" className="h1">
@@ -23,7 +23,7 @@ function App() {
       </AppBar>
       <Grid className="App container-fluid">
         <Row className="mb-3"></Row>
-        <Row className="search-container">
+        <Row>
           <SearchBar />
         </Row>
         <Row>

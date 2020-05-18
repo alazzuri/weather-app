@@ -8,3 +8,7 @@
   height: 30px;
   margin-right: 10px;
 }
+
+.main-header {
+  background-color: rgb(0, 162, 183) !important;
+}
