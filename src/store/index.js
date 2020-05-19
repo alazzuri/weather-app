@@ -4,11 +4,11 @@ import { default as reducers } from "../reducers/";
 
 const initialState = {
   savedCities: [
-    "Cordoba, ar",
-    "Buenos Aires, ar",
-    "Miami, us",
-    "Madrid, es",
-    "Ciudad de Mexico, mx",
+    "CORDOBA",
+    "BUENOS AIRES",
+    "MIAMI",
+    "MADRID",
+    "CIUDAD DE MEXICO",
   ],
   selectedCity: null,
 };

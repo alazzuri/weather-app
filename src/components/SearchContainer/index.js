@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import { setWeatherOnCity } from "../../actions";
+import { useDispatch, useSelector } from "react-redux";
 
 const styles = () => ({
   container: {
@@ -46,13 +48,19 @@ const styles = () => ({
   btnFocused: {},
 });
 
-const handleSubmit = (e, state) => {
-  state && state.length > 2 && alert(state);
-  e.preventDefault();
-};
-
 const SearchBar = ({ classes }) => {
   const [enteredText, setEnteredText] = useState("");
+  const weatherData = useSelector((state) => state.weatherData);
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e, state) => {
+    if (state && state.length > 2 && !weatherData[state.toUpperCase()]) {
+      dispatch(setWeatherOnCity(state.toUpperCase()));
+    }
+    setEnteredText("");
+    e.preventDefault();
+  };
 
   useEffect(() => {
     function handleClickOutside(e) {
