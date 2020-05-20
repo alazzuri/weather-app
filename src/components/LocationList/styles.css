@@ -1,8 +1,8 @@
 .list-container {
   width: 90%;
   margin: 0 auto;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
   overflow: auto;
   max-height: 70vh;
 }

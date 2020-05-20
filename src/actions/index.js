@@ -71,7 +71,6 @@ export const setWeatherOnCity = (value, signal) => (dispatch) => {
       const fetchedData = await apiRequest(BASE_URL, API_KEY, value, signal);
       const weatherData = await transformWeather(fetchedData);
       dispatch(setWeatherData({ city: value, weatherData }));
-      console.log("Acccionado");
     } catch (err) {
       dispatch(setWeatherData({ city: value, weatherData: null }));
     }
