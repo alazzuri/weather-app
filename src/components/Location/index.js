@@ -10,13 +10,14 @@ const useStyles = makeStyles({
     backgroundColor: "rgb(220,220,220)",
     border: 0,
     borderRadius: 3,
-    height: 48,
+    height: 70,
     padding: "0 30px",
   },
   title: {
-    fontSize: "1.8rem",
+    height: "auto",
+    fontSize: "1.5rem",
     fontWeight: 700,
-    textAlign: "center",
+    justifyContent: "center",
   },
 });
 

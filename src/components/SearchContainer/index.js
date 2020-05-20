@@ -51,12 +51,18 @@ const styles = () => ({
 const SearchBar = ({ classes }) => {
   const [enteredText, setEnteredText] = useState("");
   const weatherData = useSelector((state) => state.weatherData);
+  let savedCities = useSelector((state) => state.savedCities);
 
   const dispatch = useDispatch();
 
   const handleSubmit = (e, state) => {
     if (state && state.length > 2 && !weatherData[state.toUpperCase()]) {
       dispatch(setWeatherOnCity(state.toUpperCase()));
+      savedCities.push(state.toUpperCase());
+      localStorage.setItem(
+        "wheaterApp_savedCities",
+        JSON.stringify(savedCities)
+      );
     }
     setEnteredText("");
     e.preventDefault();

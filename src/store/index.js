@@ -3,13 +3,10 @@ import thunk from "redux-thunk";
 import { default as reducers } from "../reducers/";
 
 const initialState = {
-  savedCities: [
-    "CORDOBA",
-    "BUENOS AIRES",
-    "MIAMI",
-    "MADRID",
-    "CIUDAD DE MEXICO",
-  ],
+  savedCities: localStorage.getItem("wheaterApp_savedCities")
+    ? JSON.parse(localStorage.getItem("wheaterApp_savedCities"))
+    : ["MADRID", "MIAMI", "SAN PABLO", "BUENOS AIRES", "CORDOBA"],
+
   selectedCity: null,
 };
 
