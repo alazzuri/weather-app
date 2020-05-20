@@ -8,8 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 const styles = () => ({
   container: {
     display: "flex",
-    flexWrap: "nowrap",
-    width: "50%",
+    width: "80%",
     margin: "0px auto",
     marginBottom: 20,
   },
@@ -56,13 +55,11 @@ const SearchBar = ({ classes }) => {
   const dispatch = useDispatch();
 
   const handleSubmit = (e, state) => {
+    savedCities.unshift(state.toUpperCase());
+    savedCities.length = 5;
+    localStorage.setItem("wheaterApp_savedCities", JSON.stringify(savedCities));
     if (state && state.length > 2 && !weatherData[state.toUpperCase()]) {
       dispatch(setWeatherOnCity(state.toUpperCase()));
-      savedCities.push(state.toUpperCase());
-      localStorage.setItem(
-        "wheaterApp_savedCities",
-        JSON.stringify(savedCities)
-      );
     }
     setEnteredText("");
     e.preventDefault();
