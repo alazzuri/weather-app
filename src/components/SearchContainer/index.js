@@ -1,10 +1,16 @@
+//REACT
 import React, { useState, useEffect } from "react";
+
+//LIBS
 import { withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+
+//REDUX
 import { setWeatherOnCity, setSavedCity } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
 
+//STYLES
 const styles = () => ({
   container: {
     display: "flex",
@@ -49,7 +55,6 @@ const styles = () => ({
 
 const SearchBar = ({ classes }) => {
   const [enteredText, setEnteredText] = useState("");
-  const weatherData = useSelector((state) => state.weatherData);
   let savedCities = useSelector((state) => state.savedCities);
 
   const dispatch = useDispatch();
