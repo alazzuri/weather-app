@@ -4,7 +4,7 @@ import "./styles.css";
 export const Footer = () => {
   return (
     <footer className="footer">
-      <div className="container-fluid container info-container">
+      <div className="info-container">
         <p>
           Codeado con <i className="fas fa-heart"></i> por Alexis Lazzuri
         </p>

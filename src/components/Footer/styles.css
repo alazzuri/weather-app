@@ -1,15 +1,18 @@
 .footer {
   width: 100vw;
   border-top: 1px solid black;
-  padding: 15px;
-  padding-bottom: 0px;
+  padding-top: 15px;
   font-weight: 700;
 }
 
 .info-container {
+  width: 100vw;
+  max-width: 1400px;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  padding-bottom: 5px;
 }
 
 p {
@@ -39,4 +42,12 @@ p {
 
 .github i {
   margin-right: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .info-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
