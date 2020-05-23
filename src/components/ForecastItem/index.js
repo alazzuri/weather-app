@@ -13,7 +13,7 @@ import "./styles.css";
 
 const ForecastItem = ({ weekDay, hour, data }) => {
   return (
-    <div className="container">
+    <div className="forecast-container">
       <h2>
         {weekDay.toUpperCase()} - {hour} hs.
       </h2>

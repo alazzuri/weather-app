@@ -16,6 +16,7 @@ const styles = () => ({
     display: "flex",
     width: "80%",
     margin: "0px auto",
+    marginTop: 20,
     marginBottom: 20,
   },
 

@@ -1,8 +1,14 @@
+//REACT
 import React from "react";
+
+//LIBS
 import PropTypes from "prop-types";
 
+//STYLES
+import "./styles.css";
+
 const WeatherExtraInfo = ({ humidity, wind }) => (
-  <div className="card-text font-italic">
+  <div className="info-container">
     <span>{`Humedad: ${humidity}% - `}</span>
     <span>{`Viento: ${wind}`}</span>
   </div>

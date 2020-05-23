@@ -1,24 +1,31 @@
 .footer {
   width: 100vw;
-  border-top: 1px solid black;
-  padding-top: 15px;
+  padding-top: 5px;
   font-weight: 700;
-}
-
-.info-container {
-  width: 100vw;
-  max-width: 1400px;
-  margin: 0 auto;
+  padding: 0px;
+  height: 50px;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  padding-bottom: 5px;
+  align-items: flex-end;
+  margin-top: 10px;
+}
+
+.footer-container {
+  width: 100vw;
+  height: auto;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-top: 2px solid black;
+  padding: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 p {
-  height: 10px;
-  display: flex;
-  align-items: center;
+  width: 100%;
+  margin: 0;
 }
 
 .fa-heart {
@@ -28,7 +35,6 @@ p {
 }
 
 .github {
-  height: 10px;
   color: black;
   text-decoration: none;
   display: flex;
@@ -45,9 +51,19 @@ p {
 }
 
 @media screen and (max-width: 768px) {
-  .info-container {
-    flex-direction: column;
+  .footer {
+    margin-top: 100px;
+  }
+
+  footer p {
+    width: 100%;
+    display: flex;
     justify-content: center;
+    margin: 5px auto;
+  }
+
+  .footer-container {
+    flex-direction: column;
     align-items: center;
   }
 }

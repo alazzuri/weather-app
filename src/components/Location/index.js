@@ -18,7 +18,7 @@ const useStyles = makeStyles({
   },
   title: {
     height: "auto",
-    fontSize: "1.5rem",
+    fontSize: "1.6rem",
     fontWeight: 700,
     justifyContent: "center",
   },

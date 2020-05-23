@@ -1,6 +1,13 @@
+//REACT
 import React from "react";
+
+//LIBS
 import PropTypes from "prop-types";
+
+//COMPONENTS
 import WeatherLocation from "../WeatherLocation/";
+
+//STYLES
 import "./styles.css";
 
 const LocationList = ({ cities, onSelectedLocation }) => {
@@ -12,7 +19,6 @@ const LocationList = ({ cities, onSelectedLocation }) => {
     <div className="list-container">
       {cities.map((city) => (
         <WeatherLocation
-          className="location-card"
           city={city.name}
           data={city.data}
           key={city.key}

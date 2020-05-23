@@ -7,7 +7,7 @@ import "./styles.css";
 export const Footer = () => {
   return (
     <footer className="footer">
-      <div className="info-container">
+      <div className="footer-container">
         <p>
           Codeado con <i className="fas fa-heart"></i> por Alexis Lazzuri
         </p>

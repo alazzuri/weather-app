@@ -28,26 +28,22 @@ const getWeatherIcon = (weatherState) => {
   if (icon) {
     return (
       <WeaterIcons
-        className={`${icon === "day-sunny" ? "text-warning" : "text-info"}`}
+        className={`${icon === "day-sunny" ? "icon-yellow" : "icon-green"}`}
         name={icon}
         size={sizeIcon}
       />
     );
   } else {
     return (
-      <WeaterIcons
-        className="text-warning"
-        name={"day-sunny"}
-        size={sizeIcon}
-      />
+      <WeaterIcons className="text-green" name={"cloud"} size={sizeIcon} />
     );
   }
 };
 
 const WeatherTemperature = ({ temperature, weatherState }) => (
-  <div className="card-title column">
+  <div className="temp-container">
     {getWeatherIcon(weatherState)}
-    <span className="font-weight-bold h4 mt-2">{`${temperature} C°`}</span>
+    <span className="temperature">{`${temperature} C°`}</span>
   </div>
 );
 

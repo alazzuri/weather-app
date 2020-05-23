@@ -8,7 +8,6 @@ import SearchBar from "./components/SearchContainer";
 import ForecastExtendedContainer from "./containers/ForecastExtendedContainer";
 import LocationListContainer from "./containers/LocationListContainer";
 import { Logo } from "./assets";
-import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -35,7 +34,6 @@ function App() {
           </Col>
         </Row>
       </Grid>
-      <Footer />
     </div>
   );
 }

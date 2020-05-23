@@ -1,14 +1,22 @@
+//REACT
 import React from "react";
+
+//LIBS
 import PropTypes from "prop-types";
+import Card from "@material-ui/core/Card";
+
+//COMPONENTS
 import LocationCardLoader from "../ContentLoaders/WheaterLocationCard";
 import Location from "../Location";
 import WeatherData from "../WeatherData";
-import Card from "@material-ui/core/Card";
+
+//STYLES
+import "./styles.css";
 
 const WeatherLocation = ({ city, eventHandler, data }) => {
   return (
     <Card
-      className="bg-light mb-4"
+      className="location-container"
       elevation={4}
       onClick={() => eventHandler()}
     >
@@ -18,7 +26,7 @@ const WeatherLocation = ({ city, eventHandler, data }) => {
           <WeatherData data={data} />
         </>
       ) : (
-        <LocationCardLoader className="mx-auto" />
+        <LocationCardLoader className="" />
       )}
     </Card>
   );

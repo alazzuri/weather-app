@@ -1,5 +1,10 @@
+//REACT
 import React from "react";
+
+//LIBS
 import PropTypes from "prop-types";
+
+//COMPONENTS
 import WeatherExtraInfo from "../WeatherExtraInfo";
 import WeatherTemperature from "../WeatherTemperature";
 
