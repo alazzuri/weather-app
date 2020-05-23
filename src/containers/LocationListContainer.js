@@ -17,18 +17,20 @@ export const LocationListContainer = () => {
     return () => {};
   }, [cities]);
 
-  const transformedData = (data) => {
+  const transformedData = (data, cities) => {
     const transformedData = [];
-    for (const key in data) {
-      if (data.hasOwnProperty(key)) {
-        const weatherInfo = data[key].weatherData;
-        transformedData.unshift({
-          key,
-          name: key,
-          data: weatherInfo ? weatherInfo.data : weatherInfo,
-        });
+    cities.forEach((city) => {
+      for (const key in data) {
+        if (data.hasOwnProperty(key) && key === city) {
+          const weatherInfo = data[key].weatherData;
+          transformedData.push({
+            key,
+            name: key,
+            data: weatherInfo ? weatherInfo.data : weatherInfo,
+          });
+        }
       }
-    }
+    });
 
     return transformedData;
   };
@@ -39,7 +41,7 @@ export const LocationListContainer = () => {
 
   return (
     <LocationList
-      cities={transformedData(weatherData)}
+      cities={transformedData(weatherData, cities)}
       onSelectedLocation={handleSelectedLocation}
     />
   );

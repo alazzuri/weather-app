@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import { setWeatherOnCity } from "../../actions";
+import { setWeatherOnCity, setSavedCity } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
 
 const styles = () => ({
@@ -55,11 +55,14 @@ const SearchBar = ({ classes }) => {
   const dispatch = useDispatch();
 
   const handleSubmit = (e, state) => {
-    savedCities.unshift(state.toUpperCase());
-    savedCities.length = 5;
-    localStorage.setItem("wheaterApp_savedCities", JSON.stringify(savedCities));
-    if (state && state.length > 2 && !weatherData[state.toUpperCase()]) {
+    dispatch(setSavedCity(state.toUpperCase()));
+
+    if (state && state.length > 2) {
       dispatch(setWeatherOnCity(state.toUpperCase()));
+      localStorage.setItem(
+        "wheaterApp_savedCities",
+        JSON.stringify(savedCities)
+      );
     }
     setEnteredText("");
     e.preventDefault();
@@ -67,13 +70,9 @@ const SearchBar = ({ classes }) => {
 
   useEffect(() => {
     function handleClickOutside(e) {
-      const isInside =
-        e.target.closest("form") &&
-        e.target.closest("form").className.includes("SearchBar");
-
+      const isInside = e.target.closest("form");
       !isInside && setEnteredText("");
     }
-
     document.addEventListener("click", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);

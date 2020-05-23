@@ -12,6 +12,7 @@
     "bootstrap": "^4.4.1",
     "convert-units": "^2.3.4",
     "gh-pages": "^2.2.0",
+    "local-storage": "^2.0.0",
     "lodash.topairs": "^4.3.0",
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",

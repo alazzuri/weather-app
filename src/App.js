@@ -6,9 +6,9 @@ import Typography from "@material-ui/core/Typography";
 import Toolbar from "@material-ui/core/Toolbar";
 import SearchBar from "./components/SearchContainer";
 import ForecastExtendedContainer from "./containers/ForecastExtendedContainer";
-import Footer from "./components/Footer";
 import LocationListContainer from "./containers/LocationListContainer";
 import { Logo } from "./assets";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -34,10 +34,8 @@ function App() {
             <ForecastExtendedContainer />
           </Col>
         </Row>
-        <Row>
-          <Footer />
-        </Row>
       </Grid>
+      <Footer />
     </div>
   );
 }

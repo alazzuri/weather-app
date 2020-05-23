@@ -5,7 +5,7 @@ import { default as reducers } from "../reducers/";
 const initialState = {
   savedCities: localStorage.getItem("wheaterApp_savedCities")
     ? JSON.parse(localStorage.getItem("wheaterApp_savedCities"))
-    : ["MADRID", "MIAMI", "SAN PABLO", "BUENOS AIRES", "CORDOBA"],
+    : ["MADRID", "MIAMI"],
 
   selectedCity: null,
 };
