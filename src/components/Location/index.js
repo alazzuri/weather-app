@@ -1,10 +1,13 @@
+//REACT
 import React from "react";
+
+//LIBS
+import PropTypes from "prop-types";
 import CardHeader from "@material-ui/core/CardHeader";
 import Typography from "@material-ui/core/Typography";
-
 import { makeStyles } from "@material-ui/core/styles";
-import PropTypes from "prop-types";
 
+//STYLES
 const useStyles = makeStyles({
   container: {
     backgroundColor: "rgb(220,220,220)",
