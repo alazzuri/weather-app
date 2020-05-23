@@ -1,26 +1,37 @@
+//REACT
 import React from "react";
 
+//LIBS
+import Divider from "@material-ui/core/Divider";
 import Skeleton from "@material-ui/lab/Skeleton";
+
+//STYLES
+import "./styles.css";
 
 const LocationCardLoader = () => (
   <div>
-    <Skeleton variant="rect" className="card-header" height={80}>
-      <Skeleton className="w-50 mx-auto" height={50} />
+    <Skeleton variant="rect" height={70}>
+      <Skeleton className="content-loader centered card-title" height={50} />
     </Skeleton>
-    <Skeleton variant="rect" className="card-body" height={180}>
+    <Divider />
+    <Skeleton variant="rect" className="centered pt10" height={180}>
       <Skeleton
         variant="circle"
         width={60}
         height={60}
-        className="mx-auto mb-1"
+        className="centered mb5"
       ></Skeleton>
       <Skeleton
         variant="rect"
         width={60}
         height={60}
-        className="mx-auto mb-1"
+        className="centered mb5"
       ></Skeleton>
-      <Skeleton variant="text" height={30} className="mx-auto w-75"></Skeleton>
+      <Skeleton
+        variant="text"
+        height={30}
+        className="content-loader centered mb5"
+      ></Skeleton>
     </Skeleton>
   </div>
 );

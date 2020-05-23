@@ -1,7 +1,25 @@
 .content-loader {
   width: 50%;
+  padding-top: 20px;
 }
 
 .centered {
   margin: 0 auto;
+}
+
+.vertical-centered {
+  display: flex;
+  align-items: center;
+}
+
+.card-title {
+  padding: 30px;
+}
+
+.pt10 {
+  padding-top: 10px;
+}
+
+.mb5 {
+  margin-bottom: 5px;
 }
