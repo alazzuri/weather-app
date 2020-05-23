@@ -1,11 +1,16 @@
+//REACT
 import React from "react";
-import PropTypes from "prop-types";
-import ForecastItem from "../ForecastItem";
 
-import ForecastLoader from "../ContentLoaders/ForecastLoader";
+//LIBS
+import PropTypes from "prop-types";
 import { Card, Divider } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 
+//COMPONENTS
+import ForecastItem from "../ForecastItem";
+import ForecastLoader from "../ContentLoaders/ForecastLoader";
+
+//STYLES
 import "./styles.css";
 
 const renderForecastDays = (completeForecast) =>
@@ -31,9 +36,9 @@ const renderForecastDays = (completeForecast) =>
 const ForecastExtended = ({ city, forecastData, isFetching }) => {
   return (
     <Paper elevation={4}>
-      <Card className="card">
+      <Card>
         <div className="forecast">
-          <h2 className="card-header mb-2">Pronostico Extendido</h2>
+          <h2 className="title">Pronostico Extendido</h2>
           <h3>{city}</h3>
           <Divider />
           {isFetching ? (

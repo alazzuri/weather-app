@@ -1,4 +1,7 @@
+//REACT
 import React from "react";
+
+//STYLES
 import "./styles.css";
 
 export const Footer = () => {
