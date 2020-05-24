@@ -11,4 +11,11 @@
 .title {
   background-color: rgb(220, 220, 220);
   padding: 20px;
+  margin: 0px;
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  padding: 10px;
+  margin: 0px;
 }

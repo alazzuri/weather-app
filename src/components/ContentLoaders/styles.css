@@ -1,5 +1,6 @@
 .content-loader {
   width: 50%;
+  padding: 0px;
   padding-top: 20px;
 }
 
@@ -13,7 +14,7 @@
 }
 
 .card-title {
-  padding: 30px;
+  padding: 10px;
 }
 
 .pt10 {
@@ -22,4 +23,8 @@
 
 .mb5 {
   margin-bottom: 5px;
+}
+
+.pb10 {
+  padding-bottom: 10px;
 }

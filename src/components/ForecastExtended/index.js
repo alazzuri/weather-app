@@ -39,7 +39,7 @@ const ForecastExtended = ({ city, forecastData, isFetching }) => {
       <Card>
         <div className="forecast">
           <h2 className="title">Pronostico Extendido</h2>
-          <h3>{city}</h3>
+          <h3 className="subtitle">{city}</h3>
           <Divider />
           {isFetching ? (
             <ForecastLoader />

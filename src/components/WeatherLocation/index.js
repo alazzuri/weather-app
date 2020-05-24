@@ -26,7 +26,7 @@ const WeatherLocation = ({ city, eventHandler, data }) => {
           <WeatherData data={data} />
         </>
       ) : (
-        <LocationCardLoader className="" />
+        <LocationCardLoader />
       )}
     </Card>
   );

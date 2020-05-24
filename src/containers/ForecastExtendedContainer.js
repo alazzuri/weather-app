@@ -27,16 +27,15 @@ const ForecastExtendedContainer = () => {
 
   return selectedCity ? (
     <ForecastExtended
-      className="w-100"
       city={selectedCity}
       forecastData={weatherData[selectedCity].forecastData}
       isFetching={isFetching}
     />
   ) : (
     <Paper elevation={4}>
-      <Card className="card">
+      <Card>
         <div className="forecast">
-          <h2 className="card-header mb-2">Pronostico Extendido</h2>
+          <h2 className="title">Pronostico Extendido</h2>
           <h3>Seleccione ciudad</h3>
           <Divider />
         </div>

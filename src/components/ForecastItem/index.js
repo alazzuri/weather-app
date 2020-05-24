@@ -14,7 +14,7 @@ import "./styles.css";
 const ForecastItem = ({ weekDay, hour, data }) => {
   return (
     <div className="forecast-container">
-      <h2>
+      <h2 className="forecast-day">
         {weekDay.toUpperCase()} - {hour} hs.
       </h2>
       <WeatherData data={data} />

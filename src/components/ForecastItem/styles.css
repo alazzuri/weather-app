@@ -1,3 +1,7 @@
 .forecast-container {
   padding-top: 20px;
 }
+
+.forecast-day {
+  margin: 0px;
+}

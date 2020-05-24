@@ -12,8 +12,12 @@ const ForecastLoader = () => {
   return (
     <div className="forecast">
       <Skeleton variant="rect" height={"100%"}>
-        <Skeleton variant="rect" className="pt10" height={210}>
-          <Skeleton className="content-loader centered" height={50} />
+        <Skeleton variant="rect" className="pb10" height={210}>
+          <Skeleton
+            className="content-loader centered"
+            width={120}
+            height={50}
+          />
           <Skeleton
             variant="circle"
             width={60}
@@ -24,17 +28,21 @@ const ForecastLoader = () => {
             variant="rect"
             width={60}
             height={40}
-            className="centered mb5"
+            className="centered"
           ></Skeleton>
           <Skeleton
             variant="text"
-            height={30}
+            height={20}
             className="centered content-loader"
           ></Skeleton>
         </Skeleton>
         <Divider />
-        <Skeleton variant="rect" className="pt10" height={220}>
-          <Skeleton className="content-loader centered" height={50} />
+        <Skeleton variant="rect" className="pb10" height={210}>
+          <Skeleton
+            className="content-loader centered"
+            width={120}
+            height={50}
+          />
           <Skeleton
             variant="circle"
             width={60}
@@ -45,11 +53,11 @@ const ForecastLoader = () => {
             variant="rect"
             width={60}
             height={40}
-            className="centered mb5"
+            className="centered"
           ></Skeleton>
           <Skeleton
             variant="text"
-            height={30}
+            height={20}
             className="centered content-loader"
           ></Skeleton>
         </Skeleton>
