@@ -7,7 +7,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
 //REDUX
-import { setWeatherOnCity, setSavedCity } from "../../actions";
+import { setWeatherOnCity, setSavedCity, setCity } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
 
 //STYLES
@@ -62,6 +62,7 @@ const SearchBar = ({ classes }) => {
 
   const handleSubmit = (e, state) => {
     dispatch(setSavedCity(state.toUpperCase()));
+    dispatch(setCity(null));
 
     if (state && state.length > 2) {
       dispatch(setWeatherOnCity(state.toUpperCase()));
