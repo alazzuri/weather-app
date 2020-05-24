@@ -12,6 +12,11 @@ Aplicacion creada utilizando [Create React App](https://github.com/facebook/crea
 - React Weather Icons
 - Moment Js
 
+## Proveedor
+#### OpenWeatherMap<br>
+
+- [API Docs](https://openweathermap.org/api)
+
 ## Descarga e Inicializadión.
 
 - Clonar el repositorio con <br>
