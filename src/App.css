@@ -1,4 +1,9 @@
+.app-container {
+  width: 100vw;
+}
+
 .App {
+  width: 100vw;
   text-align: center;
   margin: 0 auto;
 }

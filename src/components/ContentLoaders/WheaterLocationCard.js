@@ -29,7 +29,7 @@ const LocationCardLoader = () => (
       ></Skeleton>
       <Skeleton
         variant="text"
-        height={30}
+        height={20}
         className="content-loader centered mb5"
       ></Skeleton>
     </Skeleton>

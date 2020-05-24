@@ -5,4 +5,9 @@
   padding-right: 20px;
   overflow: auto;
   margin-bottom: 20px;
+  height: 70vh;
+  max-height: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

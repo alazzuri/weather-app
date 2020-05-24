@@ -11,7 +11,7 @@ import { Logo } from "./assets";
 
 function App() {
   return (
-    <div>
+    <div className="app-container">
       <AppBar position="sticky" className="main-header ">
         <Toolbar>
           <img src={Logo} alt="Logo" className="main-logo" />

@@ -36,7 +36,7 @@ const ForecastExtendedContainer = () => {
       <Card>
         <div className="forecast">
           <h2 className="title">Pronostico Extendido</h2>
-          <h3>Seleccione ciudad</h3>
+          <h3>SELECCIONE CIUDAD</h3>
           <Divider />
         </div>
       </Card>
