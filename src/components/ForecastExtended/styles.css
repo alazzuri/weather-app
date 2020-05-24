@@ -1,6 +1,7 @@
 .forecast {
   height: 70vh;
   max-height: 560px;
+  padding-bottom: 15px;
 }
 
 .scroll {
