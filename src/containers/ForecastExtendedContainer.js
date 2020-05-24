@@ -32,15 +32,17 @@ const ForecastExtendedContainer = () => {
       isFetching={isFetching}
     />
   ) : (
-    <Paper elevation={4}>
-      <Card>
-        <div className="forecast">
-          <h2 className="title">Pronostico Extendido</h2>
-          <h3>SELECCIONE CIUDAD</h3>
-          <Divider />
-        </div>
-      </Card>
-    </Paper>
+    <div className="forecast-main-container">
+      <Paper elevation={4}>
+        <Card>
+          <div className="forecast">
+            <h2 className="title">Pronostico Extendido</h2>
+            <h3>SELECCIONE CIUDAD</h3>
+            <Divider />
+          </div>
+        </Card>
+      </Paper>
+    </div>
   );
 };
 

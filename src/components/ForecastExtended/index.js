@@ -35,22 +35,24 @@ const renderForecastDays = (completeForecast) =>
 
 const ForecastExtended = ({ city, forecastData, isFetching }) => {
   return (
-    <Paper elevation={4}>
-      <Card>
-        <div className="forecast">
-          <h2 className="title">Pronostico Extendido</h2>
-          <h3 className="subtitle">{city}</h3>
-          <Divider />
-          {isFetching ? (
-            <ForecastLoader />
-          ) : (
-            <div className="scroll">
-              {renderForecastDays(forecastData, city)}
-            </div>
-          )}
-        </div>
-      </Card>
-    </Paper>
+    <div className="forecast-main-container">
+      <Paper elevation={4}>
+        <Card>
+          <div className="forecast">
+            <h2 className="title">Pronostico Extendido</h2>
+            <h3 className="subtitle">{city}</h3>
+            <Divider />
+            {isFetching ? (
+              <ForecastLoader />
+            ) : (
+              <div className="scroll">
+                {renderForecastDays(forecastData, city)}
+              </div>
+            )}
+          </div>
+        </Card>
+      </Paper>
+    </div>
   );
 };
 
